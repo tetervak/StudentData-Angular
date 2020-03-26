@@ -2,15 +2,33 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
+import {FooterComponent} from './footer/footer.component';
+import {InputComponent} from './input/input.component';
+import {OutputComponent} from './output/output.component';
+import {StudentDataService} from './student-data.service';
+import {RouterModule, Routes} from '@angular/router';
+import {ReactiveFormsModule} from '@angular/forms';
+
+const routes: Routes = [
+  {path: 'input', component: InputComponent},
+  {path: 'output', component: OutputComponent},
+  {path: '', redirectTo: 'input', pathMatch: 'full'},
+  {path: '**', redirectTo: 'input'}
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    FooterComponent,
+    InputComponent,
+    OutputComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    ReactiveFormsModule,
+    RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [StudentDataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

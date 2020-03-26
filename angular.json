@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "StudentData-Angular"
+    }
+  },
+  "defaultProject": "StudentData-Angular",
+  "cli": {
+    "analytics": false
+  }
 }
